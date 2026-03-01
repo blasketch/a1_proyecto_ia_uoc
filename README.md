@@ -1,6 +1,6 @@
 # Categoría: Datos y ETL (Procesamiento y transformación)
 
-## <img src="https://www.awsicon.com/static/images/Service-Icons/Analytics/64/png5x/Glue.png" width="30" align="absmiddle"> AWS Glue
+## <img src="img/Glue.png" width="30" align="absmiddle"> AWS Glue
 
 ### 1. Descripción y funcionalidad
 AWS Glue es un servicio de integración de datos y ETL (Extracción, transformación y carga) totalmente gestionado y serverless (sin servidor). Su función principal es descubrir, preparar, mover e integrar datos desde múltiples fuentes para analítica, machine learning y desarrollo de aplicaciones. Incluye un catálogo de datos centralizado para indexar la información.
@@ -34,7 +34,7 @@ AWS Glue es un servicio de integración de datos y ETL (Extracción, transformac
 
 ---
 
-## <img src="https://www.awsicon.com/static/images/Service-Icons/Analytics/64/png5x/EMR.png" width="30" align="absmiddle"> Amazon EMR (Elastic MapReduce)
+## <img src="img/EMR.png" width="30" align="absmiddle"> Amazon EMR (Elastic MapReduce)
 
 ### 1. Descripción y funcionalidad
 Amazon EMR es una plataforma de clústeres gestionada que simplifica la ejecución de frameworks de big data como Apache Hadoop y Apache Spark en AWS. Permite procesar y analizar grandes cantidades de datos distribuyendo la carga de trabajo entre múltiples instancias (servidores virtuales) de Amazon EC2.
