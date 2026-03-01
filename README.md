@@ -3,7 +3,7 @@
 ## <img src="https://www.awsicon.com/static/images/Service-Icons/Analytics/64/png5x/Glue.png" width="30" align="absmiddle"> AWS Glue
 
 ### 1. Descripción y Funcionalidad
-AWS Glue es un servicio de integración de datos y ETL (Extracción, Transformación y Carga) totalmente gestionado y *Serverless* (sin servidor). Su función principal es descubrir, preparar, mover e integrar datos desde múltiples fuentes para analítica, machine learning y desarrollo de aplicaciones. Incluye un Catálogo de Datos centralizado para indexar la información.
+AWS Glue es un servicio de integración de datos y ETL (Extracción, Transformación y Carga) totalmente gestionado y serverless (sin servidor). Su función principal es descubrir, preparar, mover e integrar datos desde múltiples fuentes para analítica, machine learning y desarrollo de aplicaciones. Incluye un catálogo de datos centralizado para indexar la información.
 
 ### 2. Patrones y Casos de Uso Idóneos
 * **Patrón principal:** Procesamiento Batch (por lotes) sin gestión de infraestructura, y catalogación automática de datos.
@@ -27,6 +27,10 @@ AWS Glue es un servicio de integración de datos y ETL (Extracción, Transformac
 * **Escenario propuesto:** Ejecutar un trabajo ETL diario que consume 10 DPUs y tarda 1 hora en completarse (Total: 300 horas DPU al mes). Precio aprox. $0.44 por DPU/hora.
 * **Coste estimado mensual:** 132.00 USD.
 * **Evidencia:** https://calculator.aws/#/estimate?id=0042432e8ec1ab243a3ba08aa06b5daa258f2068
+
+### 7. Referencias y Documentación Oficial
+* [Documentación Oficial de AWS Glue](https://docs.aws.amazon.com/es_es/glue/latest/dg/what-is-glue.html)
+* [Precios y facturación de AWS Glue](https://aws.amazon.com/es/glue/pricing/)
 
 ---
 
@@ -57,6 +61,10 @@ Amazon EMR es una plataforma de clústeres gestionada que simplifica la ejecuci�
 * **Escenario propuesto:** Un clúster pequeño con 1 nodo Master y 2 nodos Core (tipo m5.xlarge) funcionando ininterrumpidamente durante 1 mes (730 horas).
 * **Coste estimado mensual:** 105,12 USD.
 * **Evidencia:** https://calculator.aws/#/estimate?id=8434cfd551c9bb17d0d52d74bdd8654c2d1fa651
+
+### 7. Referencias y Documentación Oficial
+* [Documentación Oficial de Amazon EMR](https://docs.aws.amazon.com/es_es/emr/latest/ManagementGuide/emr-what-is-emr.html)
+* [Mejores prácticas y arquitectura para EMR](https://aws.amazon.com/es/emr/features/)
 
 ---
 
