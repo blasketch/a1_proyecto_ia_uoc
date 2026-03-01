@@ -26,7 +26,7 @@ AWS Glue es un servicio de integración de datos y ETL (Extracción, Transformac
 * **Modelo de precios:** Pago por segundo de consumo de DPUs (mínimo de 1 minuto).
 * **Escenario propuesto:** Ejecutar un trabajo ETL diario que consume 10 DPUs y tarda 1 hora en completarse (Total: 300 horas DPU al mes). Precio aprox. $0.44 por DPU/hora.
 * **Coste estimado mensual:** Alrededor de$132.00 USD.
-* **Evidencia:** [Enlace a tu estimación en AWS Pricing Calculator -> URL_CALCULADORA]
+* **Evidencia:** https://calculator.aws/#/estimate?id=0042432e8ec1ab243a3ba08aa06b5daa258f2068
 
 ---
 
@@ -55,8 +55,8 @@ Amazon EMR es una plataforma de clústeres gestionada que simplifica la ejecuci�
 ### 6. Estimación de Costes (FinOps)
 * **Modelo de precios:** Tarifa por hora de Amazon EC2 (los servidores) + tarifa por hora de Amazon EMR (el software), pagado por segundo.
 * **Escenario propuesto:** Un clúster pequeño con 1 nodo Master y 2 nodos Core (tipo m5.xlarge) funcionando ininterrumpidamente durante 1 mes (730 horas).
-* **Coste estimado mensual:** ~$420.00 USD.
-* **Evidencia:** [Enlace a tu estimación en AWS Pricing Calculator -> URL_CALCULADORA]
+* **Coste estimado mensual:** 105,12 USD.
+* **Evidencia:** https://calculator.aws/#/estimate?id=8434cfd551c9bb17d0d52d74bdd8654c2d1fa651
 
 ---
 
