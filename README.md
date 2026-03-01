@@ -10,9 +10,9 @@ AWS Glue es un servicio de integración de datos y ETL (Extracción, Transformac
 * **Caso de uso 1:** Limpieza y transformación de datos brutos alojados en un Data Lake (S3) antes de enviarlos a un Data Warehouse (Redshift).
 * **Caso de uso 2:** Descubrimiento automático de esquemas de datos usando "Glue Crawlers".
 
-### 3. Trade-offs y Alternativas (Justificación)
-* **Alternativa:** Amazon EMR.
-* **Trade-offs (Pros/Contras):** Frente a EMR, Glue ofrece una simplicidad operativa extrema al ser *Serverless* (no hay que aprovisionar ni mantener clústeres), lo que ahorra costes de personal. El sacrificio (*trade-off*) es que ofrece menos flexibilidad para afinar el rendimiento del motor subyacente (Apache Spark) y el coste por hora de computación pura es más elevado que alquilar servidores en EMR.
+### 3. Latencia y Rendimiento
+* **Latencia:** Al ser *Serverless*, tiene un tiempo de aprovisionamiento inicial. Cuando se lanza un trabajo (Job), AWS necesita asignar los recursos por detrás ("cold start"), lo que puede añadir desde unos segundos hasta un par de minutos de latencia antes de que el procesamiento comience realmente.
+* **Rendimiento:** Escala el rendimiento automáticamente distribuyendo la carga de trabajo entre múltiples DPUs (Data Processing Units). Sin embargo, ofrece menos control para realizar ajustes finos en la configuración subyacente de Apache Spark.
 
 ### 4. Operación, Escalabilidad y Seguridad
 * **Complejidad operativa:** Muy baja. Al ser Serverless, AWS escala automáticamente los recursos según el volumen de datos.
@@ -40,9 +40,9 @@ Amazon EMR es una plataforma de clústeres gestionada que simplifica la ejecuci�
 * **Caso de uso 1:** Migración de entornos Hadoop locales (On-Premises) a la nube.
 * **Caso de uso 2:** Análisis de streaming en tiempo real y machine learning complejo usando Apache Spark de forma continua.
 
-### 3. Trade-offs y Alternativas (Justificación)
-* **Alternativa:** AWS Glue.
-* **Trade-offs (Pros/Contras):** EMR ofrece un control granular absoluto sobre el software y la infraestructura (ideal para equipos con expertos en Big Data). Aunque la complejidad operativa es mucho mayor que en Glue, permite un ahorro de costes masivo al usar instancias *Spot* (servidores de bajo coste de AWS) para cargas de trabajo ininterrumpidas y pesadas.
+### 3. Latencia y Rendimiento
+* **Latencia:** Una vez que el clúster está encendido, la ejecución de los trabajos es inmediata y no hay "cold starts". Sin embargo, arrancar un clúster desde cero conlleva una latencia de infraestructura de entre 5 y 10 minutos.
+* **Rendimiento:** Altísimo y totalmente personalizable. Permite seleccionar hardware específico (ej. instancias optimizadas para memoria o red) y modificar todos los parámetros de configuración de Hadoop o Spark para maximizar la velocidad.
 
 ### 4. Operación, Escalabilidad y Seguridad
 * **Complejidad operativa:** Alta. Requiere configurar los tipos de nodos (Master, Core, Task), gestionar actualizaciones del sistema y definir políticas de escalado.
@@ -60,7 +60,19 @@ Amazon EMR es una plataforma de clústeres gestionada que simplifica la ejecuci�
 
 ---
 
-### Síntesis de la Categoría: Datos y ETL (Trade-offs)
+## Tabla Comparativa: AWS Glue vs Amazon EMR
+
+| Característica | AWS Glue (ETL Serverless) | Amazon EMR (Clúster Gestionado) |
+| :--- | :--- | :--- |
+| **Gestión de Infraestructura** | Serverless (Totalmente gestionado por AWS) | IaaS (Requiere gestión de clústeres y nodos EC2) |
+| **Latencia / Rendimiento** | Tiempo de aprovisionamiento previo por trabajo | Latencia de ejecución inmediata (si está encendido) |
+| **Modelo de Pago** | Por segundo de uso de DPU (solo cuando procesa) | Por hora/segundo (incluso si el clúster está inactivo) |
+| **Límites Críticos** | Timeout de 48 horas máximo | Limitado por cuotas regionales de vCPUs en EC2 |
+| **Escalabilidad** | Automática basada en volumen de datos | Configuración manual o mediante Auto Scaling policies |
+
+---
+
+## Síntesis y Trade-offs de la Categoría
 
 Para la capa de procesamiento y transformación de datos, hemos analizado **AWS Glue** y **Amazon EMR**. La elección entre ambos representa uno de los trade-offs más críticos en arquitecturas de Big Data: **Simplicidad y Agilidad frente a Control y Rendimiento a gran escala.**
 
