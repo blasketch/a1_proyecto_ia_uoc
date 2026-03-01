@@ -10,11 +10,17 @@ El objetivo de este proyecto es analizar diferentes capas de una arquitectura Cl
 A continuación, se detalla el estado de las diferentes capas de infraestructura que componen nuestro análisis:
 
 * **Computación y Serverless:** Análisis de `AWS Lambda` vs `Amazon EC2`. *(Responsable: Adrian Blasco Lozano)*
+  
 * **Datos y ETL:** Análisis de `AWS Glue` vs `Amazon EMR`. *(Responsable: Adrián Blasco Lozano)*
+  
 * **Almacenamiento y bases de datos** Análisis de `[Servicio A]` vs `[Servicio B]`. *(Responsable: Enric)*
+  
 * **IA y Machine Learning** Análisis de `[Servicio A]` vs `[Servicio B]`. *(Responsable: Enric)*
+  
 * **Red de entrega y contenidos** Análisis de `[Servicio A]` vs `[Servicio B]`. *(Responsable: Antonio)*
+  
 * **Identidad y seguridad** Análisis de `[Servicio A]` vs `[Servicio B]`. *(Responsable: Antonio)*
+  
 
 *(Nota: Los enlaces a los archivos `.md` de cada categoría se irán añadiendo aquí conforme se fusionen en la rama main).*
 
