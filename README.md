@@ -25,7 +25,7 @@ AWS Glue es un servicio de integración de datos y ETL (Extracción, Transformac
 ### 6. Estimación de Costes (FinOps)
 * **Modelo de precios:** Pago por segundo de consumo de DPUs (mínimo de 1 minuto).
 * **Escenario propuesto:** Ejecutar un trabajo ETL diario que consume 10 DPUs y tarda 1 hora en completarse (Total: 300 horas DPU al mes). Precio aprox. $0.44 por DPU/hora.
-* **Coste estimado mensual:** Alrededor de$132.00 USD.
+* **Coste estimado mensual:** 132.00 USD.
 * **Evidencia:** https://calculator.aws/#/estimate?id=0042432e8ec1ab243a3ba08aa06b5daa258f2068
 
 ---
