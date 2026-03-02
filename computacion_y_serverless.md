@@ -16,6 +16,7 @@ AWS Lambda es un servicio de computación serverless (sin servidor) impulsado po
 
 ### 4. Operación, escalabilidad y seguridad
 * **Complejidad operativa:** Nula. El equipo de desarrollo se desentiende del sistema operativo, los parches y el mantenimiento del hardware.
+* **Escalabilidad:** Completamente automática y prácticamente ilimitada. Lambda escala de forma instantánea ejecutando una instancia de la función por cada evento concurrente recibido, sin ninguna intervención manual. El límite predeterminado de 1.000 ejecuciones concurrentes por región es ampliable bajo petición. Para evitar escalados inesperados con impacto económico, es posible configurar un límite de concurrencia reservada por función.
 * **Seguridad:** Utiliza roles de ejecución de IAM muy granulares para limitar a qué otros servicios puede acceder el código. Se puede configurar para ejecutarse de forma segura dentro de una VPC privada.
 
 ### 5. Límites y cuotas principales
@@ -51,6 +52,7 @@ Amazon EC2 proporciona capacidad de computación escalable en la nube mediante u
 
 ### 4. Operación, escalabilidad y seguridad
 * **Complejidad operativa:** Alta. El cliente gestiona el sistema operativo, aplica los parches de seguridad, configura la red y diseña las estrategias de backup (AMIs).
+* **Escalabilidad:** Posible pero de configuración manual. El escalado horizontal se consigue mediante auto scaling groups (ASG), que lanzan o terminan instancias automáticamente en base a métricas de CloudWatch como uso de CPU o tráfico de red. El escalado vertical, en cambio, requiere detener la instancia para cambiar su tipo, lo que implica una breve ventana de inactividad. Ambas estrategias requieren diseño y configuración explícita por parte del equipo.
 * **Seguridad:** Modelo de responsabilidad compartida. AWS protege el hardware, pero el cliente debe configurar rigurosamente los security groups y mantener el sistema operativo libre de vulnerabilidades.
 
 ### 5. Límites y cuotas principales
