@@ -16,6 +16,7 @@ AWS Glue es un servicio de integración de datos y ETL (Extracción, transformac
 
 ### 4. Operación, escalabilidad y seguridad
 * **Complejidad operativa:** Muy baja. Al ser serverless, AWS escala automáticamente los recursos según el volumen de datos.
+* **Escalabilidad:** Escala de forma completamente automática y transparente. AWS Glue asigna y libera DPUs dinámicamente en función de la carga de trabajo, sin necesidad de intervención manual. Para trabajos con mayor demanda, es posible configurar el número máximo de DPUs permitidas por trabajo, lo que actúa como un límite de escala horizontal controlado. Además, soporta la ejecución de múltiples trabajos en paralelo, permitiendo escalar horizontalmente distintos pipelines ETL de forma simultánea.
 * **Seguridad:** Integración profunda con IAM para control de accesos a nivel de tabla o columna. Los trabajos se pueden ejecutar dentro de una VPC privada y soporta cifrado en reposo y en tránsito mediante AWS KMS.
 
 ### 5. Límites y cuotas principales
@@ -50,6 +51,7 @@ Amazon EMR es una plataforma de clústeres gestionada que simplifica la ejecuci�
 
 ### 4. Operación, escalabilidad y seguridad
 * **Complejidad operativa:** Alta. Requiere configurar los tipos de nodos (Master, Core, Task), gestionar actualizaciones del sistema y definir políticas de escalado.
+* **Escalabilidad:** Altamente configurable pero de gestión manual. EMR permite escalar el clúster horizontalmente añadiendo o eliminando nodos Task mediante políticas de auto scaling basadas en métricas de YARN o CloudWatch. También soporta el uso de instancias EC2 Spot como nodos Task para escalar capacidad de forma económica durante picos de carga. Para cargas de trabajo variables, EMR Serverless y EMR on EKS ofrecen alternativas con escalado más automático, manteniendo el control sobre el motor de ejecución subyacente.
 * **Seguridad:** Utiliza Security Groups (firewalls de instancia) de EC2 y roles de IAM específicos (Service Role y EC2 Instance Profile). Soporta integración con AWS Lake Formation.
 
 ### 5. Límites y cuotas principales
