@@ -4,7 +4,7 @@
 
 Este documento consolida la visión global del proyecto de análisis de servicios gestionados en AWS, integrando las distintas categorías evaluadas por el equipo en una arquitectura coherente y aportando una estimación consolidada de costes bajo un enfoque FinOps.
 
-El objetivo es proporcionar una referencia unificada que permita comprender no solo qué servicios se han comparado, sino cómo encajan entre sí dentro de una arquitectura realista.
+El objetivo es proporcionar una referencia unificada que permita comprender no solo qué servicios se han comparado de forma individual, sino cómo encajan entre sí dentro de una arquitectura realista y qué implicaciones técnicas y económicas derivan de dichas decisiones.
 
 ---
 
@@ -19,7 +19,7 @@ El flujo general contempla:
 - Transformación y procesamiento de datos mediante servicios ETL y Big Data.
 - Generación de datasets procesados listos para consumo analítico.
 
-Esta aproximación permite combinar modelos **Serverless** y **IaaS/PaaS gestionado**, equilibrando simplicidad operativa y control técnico.
+Esta aproximación permite combinar modelos **Serverless** y **IaaS/PaaS gestionado**, equilibrando simplicidad operativa y control técnico según el patrón de uso.
 
 ---
 
@@ -27,7 +27,7 @@ Esta aproximación permite combinar modelos **Serverless** y **IaaS/PaaS gestion
 
 ![Diagrama global](img/diagrama_global.png)
 
-La arquitectura refleja:
+La arquitectura refleja la integración de las categorías analizadas por el equipo:
 
 - **AWS Lambda** para procesamiento event-driven y cargas intermitentes.
 - **Amazon EC2** como alternativa de infraestructura IaaS para cargas persistentes o con mayor necesidad de control.
@@ -35,11 +35,13 @@ La arquitectura refleja:
 - **AWS Glue** para procesos ETL gestionados y catalogación de datos.
 - **Amazon EMR** para procesamiento distribuido (ej. Spark) en escenarios de mayor volumen o complejidad.
 
+El diagrama permite visualizar cómo las decisiones individuales de cada categoría se articulan dentro de un sistema completo.
+
 ---
 
 ## 4. Presupuesto global consolidado (FinOps)
 
-Estimación mensual basada en las AWS Pricing Calculator incluidas en cada categoría analizada:
+Estimación mensual consolidada a partir de los enlaces individuales de AWS Pricing Calculator incluidos en cada categoría analizada por los responsables correspondientes, manteniendo los mismos supuestos de uso definidos en cada análisis.
 
 | Servicio     | Categoría                   | Coste mensual (USD) |
 |--------------|----------------------------|---------------------|
@@ -50,7 +52,9 @@ Estimación mensual basada en las AWS Pricing Calculator incluidas en cada categ
 
 **Total estimado parcial: 246,47 USD/mes**
 
-> Este total corresponde a las categorías actualmente integradas y se ampliará conforme se incorporen las restantes.
+Las estimaciones se presentan en USD al corresponder con la moneda base utilizada por AWS Pricing Calculator.
+
+> Este total corresponde a las categorías actualmente integradas y se ampliará conforme se incorporen las restantes (Almacenamiento/BD, IA/ML, Redes y Seguridad).
 
 ---
 
@@ -63,7 +67,7 @@ Desde una perspectiva FinOps, la arquitectura permite aplicar diversas estrategi
 - **Optimización del almacenamiento en S3** mediante políticas de ciclo de vida e Intelligent-Tiering.
 - Priorización de servicios Serverless cuando la carga es variable, reduciendo costes de infraestructura inactiva.
 
-Estas medidas permiten alinear decisiones técnicas con eficiencia económica.
+Estas medidas permiten alinear decisiones técnicas con eficiencia económica y sostenibilidad financiera del entorno cloud.
 
 ---
 
@@ -75,6 +79,6 @@ El diseño en AWS implica equilibrar constantemente:
 - **Elasticidad vs Coste fijo**
 - **Rapidez de despliegue vs Flexibilidad técnica**
 
-Los servicios Serverless (Lambda, Glue) reducen carga operativa y permiten pago por uso real, mientras que soluciones basadas en infraestructura (EC2, EMR) aportan mayor control y configurabilidad a costa de mayor responsabilidad operativa.
+Los servicios Serverless (Lambda, Glue) reducen carga operativa y permiten pago por uso real, mientras que soluciones basadas en infraestructura (EC2, EMR) aportan mayor control, configurabilidad y previsibilidad en determinados escenarios, a costa de mayor responsabilidad operativa.
 
-La arquitectura propuesta demuestra cómo combinar ambos enfoques de forma estratégica para adaptarse al patrón de uso y a los objetivos de negocio.
+La arquitectura consolidada permite visualizar cómo las decisiones técnicas individuales impactan tanto en la complejidad operativa como en el coste total mensual, facilitando una evaluación estratégica integral y apoyando la toma de decisiones informadas en fases posteriores del proyecto.
