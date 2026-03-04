@@ -2,24 +2,26 @@
 
 ## 1. Objetivo
 
-Este documento consolida la visión global del proyecto de análisis de servicios gestionados en AWS, integrando las distintas categorías evaluadas por el equipo en una arquitectura coherente y aportando una estimación consolidada de costes bajo un enfoque FinOps.
+Este documento presenta una visión global del proyecto de análisis de servicios gestionados en AWS. El objetivo es integrar las distintas categorías analizadas por el equipo dentro de una arquitectura común y ofrecer una estimación aproximada de costes siguiendo un enfoque FinOps.
 
-El objetivo es proporcionar una referencia unificada que permita comprender no solo qué servicios se han comparado de forma individual, sino cómo encajan entre sí dentro de una arquitectura realista y qué implicaciones técnicas y económicas derivan de dichas decisiones.
+De esta forma, el documento permite entender no solo qué servicios se han analizado, sino también cómo se combinan dentro de una arquitectura realista y qué impacto tienen a nivel técnico y económico.
 
 ---
 
 ## 2. Caso de uso de referencia
 
-Se plantea una arquitectura de **Data Lake analítico en AWS**, orientada a la ingesta, almacenamiento y transformación de datos mediante servicios gestionados.
+Para contextualizar el análisis se propone una arquitectura de **Data Lake analítico en AWS**.
 
-El flujo general contempla:
+En este escenario, los datos se recopilan, se almacenan en un repositorio central y posteriormente se procesan para obtener información útil para análisis y toma de decisiones.
 
-- Ingesta y ejecución de lógica mediante servicios de cómputo.
-- Almacenamiento centralizado en Amazon S3 como núcleo del Data Lake.
-- Transformación y procesamiento de datos mediante servicios ETL y Big Data.
-- Generación de datasets procesados listos para consumo analítico.
+El flujo general sería:
 
-Esta aproximación permite combinar modelos **Serverless** y **IaaS/PaaS gestionado**, equilibrando simplicidad operativa y control técnico según el patrón de uso.
+- Ingesta de datos mediante servicios de cómputo.
+- Almacenamiento centralizado en **Amazon S3**, que actúa como Data Lake.
+- Procesamiento y transformación de datos mediante herramientas de ETL y Big Data.
+- Generación de datasets listos para su consumo analítico.
+
+Esta arquitectura combina servicios **Serverless** con servicios de infraestructura gestionada, permitiendo equilibrar simplicidad operativa, escalabilidad y control técnico.
 
 ---
 
@@ -27,58 +29,66 @@ Esta aproximación permite combinar modelos **Serverless** y **IaaS/PaaS gestion
 
 ![Diagrama global](img/diagrama_global.png)
 
-La arquitectura refleja la integración de las categorías analizadas por el equipo:
+El diagrama muestra cómo se integran los servicios analizados por el equipo dentro de una arquitectura completa:
 
-- **AWS Lambda** para procesamiento event-driven y cargas intermitentes.
-- **Amazon EC2** como alternativa de infraestructura IaaS para cargas persistentes o con mayor necesidad de control.
-- **Amazon S3** como núcleo del Data Lake (zonas RAW y CURATED).
-- **AWS Glue** para procesos ETL gestionados y catalogación de datos.
-- **Amazon EMR** para procesamiento distribuido (ej. Spark) en escenarios de mayor volumen o complejidad.
+- **AWS Lambda** para procesamientos automáticos y cargas intermitentes.
+- **Amazon EC2** como infraestructura de cómputo cuando se requiere mayor control.
+- **Amazon S3** como repositorio central del Data Lake.
+- **AWS Glue** para procesos ETL y catalogación de datos.
+- **Amazon EMR** para procesamiento distribuido de grandes volúmenes de datos.
+- **Amazon CloudFront** para mejorar la entrega de contenido y reducir la latencia global.
+- **Amazon VPC** para aislar la infraestructura dentro de una red privada y segura.
+- **AWS IAM** para gestionar identidades y permisos dentro del entorno AWS.
 
-El diagrama permite visualizar cómo las decisiones individuales de cada categoría se articulan dentro de un sistema completo.
+De esta manera se puede observar cómo las decisiones técnicas de cada categoría se combinan para construir una arquitectura completa.
 
 ---
 
 ## 4. Presupuesto global consolidado (FinOps)
 
-Estimación mensual consolidada a partir de los enlaces individuales de AWS Pricing Calculator incluidos en cada categoría analizada por los responsables correspondientes, manteniendo los mismos supuestos de uso definidos en cada análisis.
+El siguiente presupuesto consolida las estimaciones aproximadas obtenidas a partir de los análisis individuales realizados por cada miembro del equipo.
 
-| Servicio     | Categoría                   | Coste mensual (USD) |
-|--------------|----------------------------|---------------------|
-| AWS Lambda  | Computación Serverless     | 1,03 |
-| Amazon EC2  | Computación IaaS           | 8,32 |
-| AWS Glue    | ETL gestionado             | 132,00 |
-| Amazon EMR  | Procesamiento Big Data     | 105,12 |
+| Servicio | Categoría | Coste mensual (USD) |
+|--------|--------|--------|
+| AWS Lambda | Computación Serverless | 1.03 |
+| Amazon EC2 | Computación IaaS | 8.32 |
+| AWS Glue | ETL gestionado | 132.00 |
+| Amazon EMR | Procesamiento Big Data | 105.12 |
+| Amazon CloudFront | Red de entrega de contenido | 42.50 |
+| Amazon VPC | Networking | ~40.00 |
+| AWS IAM | Seguridad e identidad | 0 |
 
-**Total estimado parcial: 246,47 USD/mes**
+**Coste total estimado: ~330 USD/mes**
 
-Las estimaciones se presentan en USD al corresponder con la moneda base utilizada por AWS Pricing Calculator.
+Las estimaciones se expresan en **USD**, ya que es la moneda utilizada por la AWS Pricing Calculator.
 
-> Este total corresponde a las categorías actualmente integradas y se ampliará conforme se incorporen las restantes (Almacenamiento/BD, IA/ML, Redes y Seguridad).
+Este presupuesto representa una aproximación basada en los escenarios planteados en cada análisis individual y se actualizará si se modifican los supuestos de uso.
 
 ---
 
 ## 5. Estrategia FinOps y optimización de costes
 
-Desde una perspectiva FinOps, la arquitectura permite aplicar diversas estrategias de optimización:
+Desde una perspectiva FinOps, la arquitectura permite aplicar varias estrategias para optimizar costes:
 
-- **Savings Plans o instancias reservadas** para cargas estables en EC2.
-- **Rightsizing** en clústeres EMR para evitar sobredimensionamiento.
-- **Optimización del almacenamiento en S3** mediante políticas de ciclo de vida e Intelligent-Tiering.
-- Priorización de servicios Serverless cuando la carga es variable, reduciendo costes de infraestructura inactiva.
+- Uso de **Savings Plans o instancias reservadas** para cargas estables en EC2.
+- Ajuste de tamaño de clústeres EMR para evitar sobredimensionamiento.
+- Uso de **CloudFront** para optimizar el tráfico y reducir costes de transferencia.
+- Aplicación de políticas de almacenamiento en **S3** para mover datos antiguos a capas más económicas.
+- Uso de servicios **Serverless** cuando la carga de trabajo es variable.
 
-Estas medidas permiten alinear decisiones técnicas con eficiencia económica y sostenibilidad financiera del entorno cloud.
+Estas prácticas permiten mejorar la eficiencia económica sin comprometer la escalabilidad de la arquitectura.
 
 ---
 
 ## 6. Conclusión global y trade-offs
 
-El diseño en AWS implica equilibrar constantemente:
+El diseño de arquitecturas en AWS implica equilibrar diferentes factores como coste, escalabilidad y complejidad operativa.
 
-- **Simplicidad vs Control**
-- **Elasticidad vs Coste fijo**
-- **Rapidez de despliegue vs Flexibilidad técnica**
+En este proyecto se observa un claro equilibrio entre:
 
-Los servicios Serverless (Lambda, Glue) reducen carga operativa y permiten pago por uso real, mientras que soluciones basadas en infraestructura (EC2, EMR) aportan mayor control, configurabilidad y previsibilidad en determinados escenarios, a costa de mayor responsabilidad operativa.
+- **Simplicidad operativa** mediante servicios Serverless como Lambda o Glue.
+- **Control y flexibilidad** mediante servicios de infraestructura como EC2 o EMR.
 
-La arquitectura consolidada permite visualizar cómo las decisiones técnicas individuales impactan tanto en la complejidad operativa como en el coste total mensual, facilitando una evaluación estratégica integral y apoyando la toma de decisiones informadas en fases posteriores del proyecto.
+Además, servicios como **CloudFront**, **VPC** e **IAM** añaden capas fundamentales de rendimiento, red y seguridad.
+
+La arquitectura resultante permite visualizar cómo cada decisión técnica impacta tanto en el funcionamiento del sistema como en su coste mensual, facilitando así la evaluación de diferentes alternativas dentro del diseño de infraestructuras cloud.
