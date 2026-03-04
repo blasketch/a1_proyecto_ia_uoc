@@ -1,90 +1,48 @@
-\# Identidad, Seguridad y Redes
+# Categoría: Seguridad, Identidad y Redes
 
-&nbsp;	
+## <img src="img/IAM.png" width="30" align="absmiddle"> AWS IAM (Identity and Access Management)
 
-\## 1. AWS IAM (Identity and Access Management)
+**Responsable:** Antonio
+**Categoría en el Pipeline:** Seguridad e Identidad (Gobernanza)
 
-!\[IAM](./img/IAM.png)
+### 1. Descripción y funcionalidad
+Es el servicio central para controlar quién puede acceder a qué recursos en AWS. Permite gestionar Usuarios, Grupos, Roles y sus permisos mediante políticas en formato **JSON**.
 
+### 2. Patrones y casos de uso idóneos
+* **Principio de menor privilegio:** Crear credenciales específicas para desarrolladores evitando el uso de la cuenta "Root".
+* **Roles para servicios:** Configuración de permisos para que servicios (ej. Lambda) interactúen entre sí sin usar claves estáticas.
+* **Federación:** Permitir que usuarios externos (Google, Azure AD) accedan a AWS mediante identidades existentes.
 
+### 3. Trade-offs y alternativas
+* **Alternativa:** **AWS IAM Identity Center** (para SSO empresarial) o ABAC.
+* **Trade-offs:** IAM es el estándar para control granular técnico, pero requiere una gestión manual cuidadosa. Para entornos multi-cuenta, Identity Center es superior al centralizar la gobernanza.
 
-\*\*Responsable:\*\* Antonio  
-
-\*\*Categoría en el Pipeline:\*\* Seguridad e Identidad (Gobernanza)
-
-
-
-\### 1. Descripción y Funcionalidad
-
-Servicio central para controlar quién puede acceder a qué recursos. Gestiona Usuarios, Grupos, Roles y permisos mediante \*\*Políticas JSON\*\*.
-
-
-
-\### 2. Patrones y Casos de Uso Idóneos
-
-\* \*\*Principio de menor privilegio:\*\* Credenciales específicas para desarrolladores evitando el uso de "Root".
-
-\* \*\*Roles para servicios:\*\* Ejemplo: Lambda leyendo de S3 sin contraseñas.
-
-\* \*\*Federación:\*\* Acceso para usuarios externos (Google, Azure AD).
-
-
-
-\### 3. Trade-offs y Alternativas
-
-\* \*\*Alternativa:\*\* \*\*AWS IAM Identity Center\*\* (SSO empresarial) o \*\*ABAC\*\*.
-
-\* \*\*Trade-offs:\*\* IAM es el estándar granular, pero requiere gestión cuidadosa para evitar brechas de seguridad. 
-
-
-
-\### 4. Operación y Auditoría
-
-\* \*\*Propagación:\*\* Los cambios son globales pero no instantáneos.
-
-\* \*\*Auditoría:\*\* Uso de \*\*IAM Access Analyzer\*\* para detectar recursos accesibles desde fuera de la cuenta.
-
-
+### 4. Operación y auditoría
+* **Propagación:** Los cambios en las políticas son globales pero la propagación no es instantánea.
+* **Auditoría:** Uso de **IAM Access Analyzer** para identificar recursos con acceso público o externo no deseado.
 
 ---
 
+## <img src="img/VPC.png" width="30" align="absmiddle"> Amazon VPC (Virtual Private Cloud)
 
+**Categoría en el Pipeline:** Redes (Networking)
 
-\## 2. Amazon VPC (Virtual Private Cloud)
+### 1. Descripción y funcionalidad
+Permite aprovisionar una sección lógicamente aislada de la nube de AWS donde se lanzan recursos en una red virtual definida por el usuario, con control total sobre subredes y tablas de rutas.
 
-!\[VPC](./img/VPC.png)
+### 2. Patrones y casos de uso idóneos
+* **Aislamiento de infraestructura:** Alojamiento de bases de datos en **Subredes Privadas** sin exposición directa a internet.
+* **Conectividad privada:** Uso de **VPC Endpoints** para conectar de forma segura con servicios como S3 o DynamoDB sin navegar por la red pública.
 
+### 3. Trade-offs y seguridad
+* **Alternativa:** Uso de VPC Peering para conexiones punto a punto vs. Transit Gateway para redes complejas.
+* **Seguridad:** Implementación de seguridad en capas mediante **Security Groups** (firewall a nivel de instancia) y **Network ACLs** (firewall a nivel de subred).
 
+### 4. Estimación de costes (FinOps)
+* **Modelo de precios:** La VPC básica no tiene coste. Se factura por el uso de NAT Gateways, VPNs y transferencias de datos entre zonas de disponibilidad.
+* **Coste estimado:** Configuración estándar con tráfico moderado: **~35.00 - 50.00 USD/mes**.
 
-\*\*Categoría en el Pipeline:\*\* Redes (Networking)
+### Síntesis y trade-offs de la categoría
+La gestión de seguridad y red es el pilar de la infraestructura. Mientras que **IAM** garantiza que solo las entidades autorizadas operen en el entorno, la **VPC** asegura que el tráfico fluya por canales aislados. El trade-off principal es la **complejidad operativa**: una configuración robusta de red requiere conocimientos avanzados, pero es indispensable para mitigar riesgos de exposición de datos..
 
-
-
-\### 1. Descripción y Funcionalidad
-
-Aprovisiona una sección aislada de la nube de AWS con control total sobre direccionamiento IP, subredes y tablas de rutas.
-
-
-
-\### 2. Patrones y Casos de Uso Idóneos
-
-\* \*\*Aislamiento:\*\* Bases de datos en \*\*Subredes Privadas\*\*.
-
-\* \*\*Conectividad Privada:\*\* Uso de \*\*VPC Endpoints\*\* para conectar con S3/DynamoDB sin salir a internet.
-
-
-
-\### 3. Trade-offs y Seguridad
-
-\* \*\*Alternativa:\*\* VPC Peering vs. Transit Gateway.
-
-\* \*\*Seguridad:\*\* Doble capa con \*\*Security Groups\*\* (instancia) y \*\*Network ACLs\*\* (subred).
-
-
-
-\### 4. Estimación de Costes (FinOps)
-
-\* \*\*Modelo:\*\* VPC básica gratuita. Costes por NAT Gateways y tráfico entre zonas.
-
-\* \*\*Coste estimado:\*\* ~$35.00 - $50.00 USD/mes.
 
