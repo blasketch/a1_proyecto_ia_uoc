@@ -32,10 +32,3 @@ Es una red de entrega de datos de contenido (CDN) que distribuye los archivos we
 
 
 
-\### 6. Estimación de Costes (FinOps)
-
-\* \*\*Modelo:\*\* Pago por GB transferido + número de solicitudes HTTP.
-
-\* \*\*Escenario (Europa):\*\* 500 GB x 0.085$ = \*\*42.50$ USD estimados.\*\*
-
-
