@@ -17,9 +17,9 @@ A continuación, se detalla el estado de las diferentes capas de infraestructura
   
 * **IA y Machine Learning** Análisis de `[Servicio A]` vs `[Servicio B]`. *(Responsable: Enric)*
   
-* **Red de entrega y contenidos** Análisis de `[Servicio A]` vs `[Servicio B]`. *(Responsable: Antonio)*
+* **Red de entrega y contenidos** Análisis de `Amazon CloudFront` vs `Servidor de Origen(S3)`. *(Responsable: Antonio)*
   
-* **Identidad y seguridad** Análisis de `[Servicio A]` vs `[Servicio B]`. *(Responsable: Antonio)*
+* **Identidad y seguridad** Análisis de `AWS IAM` vs `AWS IAM Identity Center`. *(Responsable: Antonio)*
   
 
 *(Nota: Los enlaces a los archivos `.md` de cada categoría se irán añadiendo aquí conforme se fusionen en la rama main).*
