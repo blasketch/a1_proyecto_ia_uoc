@@ -20,7 +20,9 @@ El objetivo de este proyecto es analizar diferentes capas de una arquitectura Cl
 
 ## 2. Documentación adicional
 
-- 📋 [Resumen ejecutivo consolidado](./resumen_ejecutivo.md)
+| Documento | Responsable | Enlace |
+|---|---|---|
+| Resumen ejecutivo consolidado | Hugo | [Ver resumen](./resumen_ejecutivo.md) |
 
 ---
 
