@@ -36,6 +36,6 @@ El objetivo de este proyecto es analizar diferentes capas de una arquitectura Cl
  ┣ 📜 datos_y_etl.md                    # Datos y ETL
  ┣ 📜 almacenamiento_bd.md              # Almacenamiento y Bases de Datos
  ┣ 📜 ia_y_ml.md                        # IA y Machine Learning
- ┣ 📜 RED_ENTREGA.md    # Red de Entrega y Contenidos
- ┗ 📜 SEGURIDAD_RED.md          # Identidad y Seguridad
+ ┣ 📜 RED_ENTREGA.md                    # Red de Entrega y Contenidos
+ ┗ 📜 SEGURIDAD_RED.md                  # Identidad y Seguridad
 ```
