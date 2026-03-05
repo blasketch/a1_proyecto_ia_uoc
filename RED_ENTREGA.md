@@ -29,11 +29,13 @@ Es una red de entrega de datos de contenido (CDN) que distribuye los archivos we
 * **Modelo de precios:** Pago por GB transferido + número de solicitudes HTTP.
 * **Escenario propuesto:** 500 GB de tráfico mensual en Europa.
 * **Coste estimado:** **42.50 USD** mensuales.
+* **Evidencia:** https://calculator.aws/#/estimate?id=764c50e6a2edf083f314e31b72f98dfc09897092
 
 ### Síntesis y trade-offs de la categoría
 
 Para la capa de entrega de contenido, hemos evaluado el uso de **Amazon CloudFront** frente a la entrega directa desde el **Servidor de Origen** (S3/EC2). Esta comparativa representa un trade-off directo entre **simplicidad operativa y rendimiento global**.
 
 Recomendamos **Amazon CloudFront** como la opción preferida para arquitecturas modernas. Aunque servir archivos directamente desde el origen es más sencillo de configurar inicialmente, penaliza gravemente la latencia para usuarios internacionales. CloudFront no solo elimina este cuello de botella mediante su red de **Edge Locations**, sino que actúa como una capa de seguridad perimetral esencial. El trade-off asumido es la gestión de la **invalidación de caché** (asegurar que el usuario vea la versión más reciente del archivo), pero este esfuerzo operativo se justifica sobradamente por la mejora en el **SEO**, la reducción de costes de transferencia de salida y la protección nativa contra ataques DDoS.
+
 
 
