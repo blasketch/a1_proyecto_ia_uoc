@@ -9,12 +9,12 @@ El objetivo de este proyecto es analizar diferentes capas de una arquitectura Cl
 
 | Categoría | Servicios comparados | Responsable | Análisis |
 |---|---|---|---|
-| Computación y Serverless | `AWS Lambda` vs `Amazon EC2` | Adrián Blasco | [Ver análisis](./computacion_y_serverless.md) |
-| Datos y ETL | `AWS Glue` vs `Amazon EMR` | Adrián Blasco | [Ver análisis](./datos_y_etl.md) |
-| Almacenamiento y Bases de Datos | `Amazon S3` vs `Amazon DynamoDB` | Enric | [Ver análisis](./almacenamiento_bd.md) |
-| IA y Machine Learning | `Amazon SageMaker` vs `Amazon Rekognition` | Enric | [Ver análisis](./ia_y_ml.md) |
-| Red de entrega y contenidos | `Amazon CloudFront` vs `Servidor de Origen (S3)` | Antonio | [Ver análisis](./RED_ENTREGA.md) |
-| Identidad y Seguridad | `AWS IAM` vs `Amazon VPC` | Antonio | [Ver análisis](./SEGURIDAD_RED.md) |
+| Computación y Serverless | `AWS Lambda` vs `Amazon EC2` | Adrián Blasco Lozano | [Ver análisis](./computacion_y_serverless.md) |
+| Datos y ETL | `AWS Glue` vs `Amazon EMR` | Adrián Blasco Lozano | [Ver análisis](./datos_y_etl.md) |
+| Almacenamiento y Bases de Datos | `Amazon S3` vs `Amazon DynamoDB` | Enric Gil Baquero | [Ver análisis](./almacenamiento_bd.md) |
+| IA y Machine Learning | `Amazon SageMaker` vs `Amazon Rekognition` | Enric Gil Baquero | [Ver análisis](./ia_y_ml.md) |
+| Red de entrega y contenidos | `Amazon CloudFront` vs `Servidor de Origen (S3)` | Antonio Sala Llaudis | [Ver análisis](./RED_ENTREGA.md) |
+| Identidad y Seguridad | `AWS IAM` vs `Amazon VPC` | Antonio Sala Llaudis | [Ver análisis](./SEGURIDAD_RED.md) |
 
 ---
 
@@ -22,7 +22,7 @@ El objetivo de este proyecto es analizar diferentes capas de una arquitectura Cl
 
 | Documento | Responsable | Enlace |
 |---|---|---|
-| Resumen ejecutivo consolidado | Hugo | [Ver resumen](./resumen_ejecutivo.md) |
+| Resumen ejecutivo consolidado | Hugo Romero Casado | [Ver resumen](./resumen_ejecutivo.md) |
 
 ---
 
@@ -36,6 +36,6 @@ El objetivo de este proyecto es analizar diferentes capas de una arquitectura Cl
  ┣ 📜 datos_y_etl.md                    # Datos y ETL
  ┣ 📜 almacenamiento_bd.md              # Almacenamiento y Bases de Datos
  ┣ 📜 ia_y_ml.md                        # IA y Machine Learning
- ┣ 📜 red_de_entrega_y_contenidos.md    # Red de Entrega y Contenidos
- ┗ 📜 identidad_y_seguridad.md          # Identidad y Seguridad
+ ┣ 📜 RED_ENTREGA.md                    # Red de Entrega y Contenidos
+ ┗ 📜 SEGURIDAD_RED.md                  # Identidad y Seguridad
 ```
