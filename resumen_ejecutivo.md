@@ -54,11 +54,11 @@ El siguiente presupuesto consolida las estimaciones aproximadas obtenidas a part
 | Amazon EC2 | Computación IaaS | 8.32 |
 | AWS Glue | ETL gestionado | 132.00 |
 | Amazon EMR | Procesamiento Big Data | 105.12 |
-| Amazon CloudFront | Red de entrega de contenido | 42.50 |
+| Amazon CloudFront | Red de entrega de contenido | 171.20 |
 | Amazon VPC | Networking | ~40.00 |
 | AWS IAM | Seguridad e identidad | 0 |
 
-**Coste total estimado: ~330 USD/mes**
+**Coste total estimado: ~458 USD/mes**
 
 Las estimaciones se expresan en **USD**, ya que es la moneda utilizada por la AWS Pricing Calculator.
 
