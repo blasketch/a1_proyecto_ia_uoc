@@ -21,6 +21,16 @@ Es el servicio central para controlar quién puede acceder a qué recursos en AW
 * **Propagación:** Los cambios en las políticas son globales pero la propagación no es instantánea.
 * **Auditoría:** Uso de **IAM Access Analyzer** para identificar recursos con acceso público o externo no deseado.
 
+###5. Límites y Cuotas Principales
+* **5,000 usuarios por cuenta.**
+* **1,000 roles por cuenta.**
+* **Managed Policies por entidad:** Por defecto, solo puedes adjuntar 10 políticas a un usuario/rol/grupo (aunque es ampliable a 20).
+
+
+###6. Estimación de Costes (FinOps)
+* **Modelo de precios:** Gratis. Es una funcionalidad esencial de la plataforma aunque para ser al 100% realista siempre hay un gasto oculto como el costo de gestión Mantener IAM limpio (borrar usuarios antiguos, rotar llaves) consume tiempo de ingeniería.
+
+
 ---
 
 ## <img src="img/VPC.png" width="30" align="absmiddle"> Amazon VPC (Virtual Private Cloud)
@@ -41,8 +51,10 @@ Permite aprovisionar una sección lógicamente aislada de la nube de AWS donde s
 ### 4. Estimación de costes (FinOps)
 * **Modelo de precios:** La VPC básica no tiene coste. Se factura por el uso de NAT Gateways, VPNs y transferencias de datos entre zonas de disponibilidad.
 * **Coste estimado:** Configuración estándar con tráfico moderado: **~35.00 - 50.00 USD/mes**.
+* **Evidencia:**https://calculator.aws/#/estimate?id=568e6ad050f61f150a13e239ba4e0b90c4312474
 
 ### Síntesis y trade-offs de la categoría
 La gestión de seguridad y red es el pilar de la infraestructura. Mientras que **IAM** garantiza que solo las entidades autorizadas operen en el entorno, la **VPC** asegura que el tráfico fluya por canales aislados. El trade-off principal es la **complejidad operativa**: una configuración robusta de red requiere conocimientos avanzados, pero es indispensable para mitigar riesgos de exposición de datos..
+
 
 
